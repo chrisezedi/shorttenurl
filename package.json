@@ -11,7 +11,7 @@
   "main": "app.js",
   "scripts": {
     "devStart": "node server.js",
-    "test": "jest --watchAll --runInBand --setupFiles dotenv/config"
+    "test": "jest --watchAll --runInBand --coverage --setupFiles dotenv/config"
   },
   "author": "Ekene Chris Ezedi",
   "license": "ISC",
