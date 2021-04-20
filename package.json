@@ -10,7 +10,7 @@
   "description": "A simple url shortener",
   "main": "app.js",
   "scripts": {
-    "devStart": "nodemon server.js",
+    "devStart": "node server.js",
     "test": "jest --watchAll --runInBand --setupFiles dotenv/config"
   },
   "author": "Ekene Chris Ezedi",
