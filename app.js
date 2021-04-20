@@ -7,8 +7,6 @@ const { shortenUrl } = require("./url/url.mutation");
 
 const express = require('express');
 const app = express();                   
-const mongoose = require("mongoose");
-const PORT = process.env.PORT || 5000;
 const router = require("./routes/url.routes");
 
 //RootQueryType
@@ -35,14 +33,6 @@ const schema = new GraphQLSchema({
     mutation:RootMutationType
 })
 
-//connect to db
-mongoose.connect(process.env.LOCAL_DB, {useNewUrlParser: true, useUnifiedTopology: true});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log("connected to database")
-    });
-
 //middlewares    
 app.use('/graphql', graphqlHTTP({
     schema:schema,
@@ -51,6 +41,4 @@ app.use('/graphql', graphqlHTTP({
 
 app.use(router);
 
-app.listen(PORT, () => {
-    console.log(`listening on http://localhost:${PORT}`)
-});
+module.exports = app;

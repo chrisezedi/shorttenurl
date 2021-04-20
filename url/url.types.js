@@ -1,7 +1,7 @@
 const { GraphQLObjectType, GraphQLNonNull, GraphQLString } = require('graphql');
 
 //urlType
-const UrlType = new GraphQLObjectType({
+const urlType = new GraphQLObjectType({
 name:'url',
 description:'Represents a single url',
     fields:() => ({
@@ -10,4 +10,4 @@ description:'Represents a single url',
     })
 });
 
-module.exports = { UrlType }
+module.exports = { urlType }

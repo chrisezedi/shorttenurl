@@ -1,11 +1,11 @@
 const { GraphQLList } = require('graphql');
-const { UrlType } = require('./url.types');
-const Url = require('../models/url');
+const { urlType } = require('./url.types');
+const { getUrls } = require('./url.resolvers');
 
 const urlQuery = {
-    type:new GraphQLList(UrlType),
+    type:new GraphQLList(urlType),
     description:'Represents a List of Urls',
-    resolve:async() => await Url.getUrls()
+    resolve:getUrls
 }
 
 module.exports = { urlQuery }

@@ -1,18 +1,14 @@
 const { GraphQLNonNull,GraphQLString } = require('graphql');
-const { UrlType } = require('./url.types');
-const Url = require('../models/url');
+const { urlType } = require('./url.types');
+const { addUrl } = require('./url.resolvers');
 
 const shortenUrl = {
-    type:UrlType,
+    type:urlType,
     description:'Shorten Url',
     args:{
         full:{type:GraphQLNonNull(GraphQLString)}
     },
-    resolve:async (parent,args) => {
-        const fullUrl = args.full;
-        const url = await Url.addUrl(fullUrl);
-        return url;
-    }
+    resolve:addUrl
 }
 
 module.exports = { shortenUrl }
